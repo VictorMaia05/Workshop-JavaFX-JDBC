@@ -20,53 +20,51 @@ import model.services.DepartmentService;
 public class DepartmentListController implements Initializable {
 
 	private DepartmentService service;
-	
+
 	@FXML
 	private TableView<Department> tableViewDepartment;
-	
+
 	@FXML
 	private TableColumn<Department, Integer> tableColumnId;
-	
+
 	@FXML
 	private TableColumn<Department, String> tableColumnName;
-	
+
 	@FXML
 	private Button btNew;
-	
+
 	private ObservableList<Department> obsList;
-	
-	
+
 	@FXML
 	public void onBtNewAction() {
-		
+		System.out.println("Button New");
 	}
-	
+
 	public void setDepartmentService(DepartmentService service) {
 		this.service = service;
 	}
-	
-	
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tableViewDepartment.setStyle("-fx-font-family: Arial");
-		initializeNode();
+		btNew.setStyle("-fx-font-family: Arial");
+		initializeNodes();
 	}
-	
-	private void initializeNode() {
+
+	private void initializeNodes() {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
-		
+
 		Stage stage = (Stage) Main.getMainScene().getWindow();
 		tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
 	}
-	
+
 	public void updateTableView() {
 		if (service == null) {
-			throw new IllegalStateException("Service wasa null");
+			throw new IllegalStateException("Service was null");
 		}
 		List<Department> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
 		tableViewDepartment.setItems(obsList);
 	}
-
 }
