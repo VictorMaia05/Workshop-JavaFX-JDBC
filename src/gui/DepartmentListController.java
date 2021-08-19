@@ -69,12 +69,12 @@ public class DepartmentListController implements Initializable, DataChangeListen
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		tableViewDepartment.setStyle("-fx-font-family: Arial");
-		btNew.setStyle("-fx-font-family: Arial");
 		initializeNodes();
 	}
 
 	private void initializeNodes() {
+		tableViewDepartment.setStyle("-fx-font-family: Arial");
+		btNew.setStyle("-fx-font-family: Arial");
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
 

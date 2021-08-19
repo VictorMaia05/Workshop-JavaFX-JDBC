@@ -177,6 +177,8 @@ public class SellerFormController implements Initializable {
 	}
 	
 	private void initializeNodes() {
+		dpBirthDate.setStyle("-fx-font-family: Arial");
+		comboBoxDepartment.setStyle("-fx-font-family: Arial");
 		Constraints.setTextFieldInteger(textId);
 		Constraints.setTextFieldMaxLength(textName, 60);
 		Constraints.setTextFieldDouble(textBaseSalary);
